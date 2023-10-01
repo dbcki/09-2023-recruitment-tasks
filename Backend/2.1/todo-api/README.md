@@ -10,7 +10,7 @@ Simple Flask API for managing todo items.
 
 3. Install the required dependencies from the "requirements.txt" file.
 
-5. Start the Flask application.
+5. Start the Flask application by running the "app.py" file.
 
 6. Modify the "config.py" by adding your own secret key (optional but recommended).
 
@@ -22,11 +22,11 @@ Simple Flask API for managing todo items.
 
 ## API Endpoints
 
-- `GET /todos`: Get a list of all todo items.
-- `GET /todos/<int:id>`: Get a specific todo item by ID.
-- `POST /todos`: Create new todo items. (Accepts a JSON list of todo items)
-- `PATCH /todos/<int:id>`: Update a specific todo item by ID.
-- `DELETE /todos/<int:id>`: Delete a specific todo item by ID.
+- `GET /tasks`: Get a list of all todo items.
+- `GET /tasks/<int:id>`: Get a specific todo item by ID.
+- `POST /tasks`: Create new todo items. (Accepts a JSON list of todo items)
+- `PATCH /tasks/<int:id>`: Update a specific todo item by ID.
+- `DELETE /tasks/<int:id>`: Delete a specific todo item by ID.
 
 **Note**: The POST endpoint expects a JSON list in the following format:
    
