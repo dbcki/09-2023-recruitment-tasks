@@ -1,0 +1,12 @@
+<h1>Car Details</h1>
+
+<div *ngIf="car">
+  <h2>{{ car.make }} {{ car.model }} ({{ car.year }})</h2>
+  <h3>Repairs:</h3>
+  <ul>
+    <li *ngFor="let repair of car.repairs">
+      {{ repair.part }} - ${{ repair.cost }}
+    </li>
+  </ul>
+  <app-add-repair [carId]="car.id"></app-add-repair>
+</div>
