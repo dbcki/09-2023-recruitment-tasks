@@ -1,9 +1,26 @@
-<h1>Car List</h1>
+<div class="min-h-screen flex justify-center items-center">
+  <div class="w-64">
+    <h1 class="text-xl font-bold m-4 flex justify-center items-center">Car List</h1>
+    
+    <ng-container *ngIf="cars.length === 0; else carList">
+      <ul class="menu bg-base-200 rounded-box">
+        <li>
+          <p>No cars found</p>
+        </li>
+      </ul>
+    </ng-container>
 
-<div *ngFor="let car of cars">
-  <div>
-    <a [routerLink]="['/car-details', car.id]">
-      {{ car.make }} {{ car.model }} ({{ car.year }})
-    </a>
+    <ng-template #carList>
+      <ul class="menu bg-base-200 rounded-box">
+        <li *ngFor="let car of cars">
+          <a [routerLink]="['/car-details', car.id]">
+            {{ car.make }} {{ car.model }} ({{ car.year }})
+          </a>
+        </li>
+      </ul>
+    </ng-template>
+    <div class="flex justify-center m-4">
+      <a [routerLink]="['/add-car']" class="btn btn-primary">Add Car</a>
+    </div>
   </div>
 </div>

@@ -1,12 +1,23 @@
-<h1>Car Details</h1>
+<div class="flex justify-center items-center h-screen">
+  <div *ngIf="car" class="w-64">
+    <h1 class="text-xl font-bold m-4 flex justify-center items-center">{{ car.make }} {{ car.model }} ({{ car.year }})</h1>
 
-<div *ngIf="car">
-  <h2>{{ car.make }} {{ car.model }} ({{ car.year }})</h2>
-  <h3>Repairs:</h3>
-  <ul>
-    <li *ngFor="let repair of car.repairs">
-      {{ repair.part }} - ${{ repair.cost }}
-    </li>
-  </ul>
-  <app-add-repair [carId]="car.id"></app-add-repair>
+    <ng-container *ngIf="car.repairs.length === 0; else noRepairs">
+      <ul class="menu bg-base-200 rounded-box mb-4">
+        <li class="px-4 py-2">
+          No repairs found
+        </li>
+      </ul>
+    </ng-container>
+
+    <ng-template #noRepairs>
+      <ul class="menu bg-base-200 rounded-box mb-4">
+        <li *ngFor="let repair of car.repairs" class="px-4 py-2">
+          ${{ repair.cost }} - {{ repair.part }}
+        </li>
+      </ul>
+    </ng-template>
+
+    <app-add-repair [carId]="car.id"></app-add-repair>
+  </div>
 </div>
